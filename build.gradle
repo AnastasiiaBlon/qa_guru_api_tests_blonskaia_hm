@@ -1,0 +1,70 @@
+plugins {
+    id 'java-library'
+    id 'io.qameta.allure' version '2.11.2'
+}
+
+allure {
+    report {
+        version.set("2.32.0")
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.27.0")
+            }
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    test {
+        resources.srcDir 'src/test/java/resources'
+    }
+}
+
+dependencies {
+    testImplementation (
+            "io.rest-assured:rest-assured:5.4.0",
+            "io.rest-assured:json-schema-validator:5.4.0",
+            'com.codeborne:selenide:6.19.1',
+            'com.github.javafaker:javafaker:1.0.2',
+            'org.junit.jupiter:junit-jupiter:5.9.3',
+            'org.slf4j:slf4j-simple:2.0.7',
+            'io.qameta.allure:allure-selenide:2.27.0'
+    )
+
+    runtimeOnly 'org.aspectj:aspectjweaver:1.9.22.1'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Test) {
+    useJUnitPlatform()
+    systemProperties(System.getProperties())
+
+//    testLogging {
+//        lifecycle {
+//            events "started", "skipped", "failed", "standard_error", "standerd_out"
+//            exceptionFormat "short"
+//        }
+//    }
+}
+
+//task simple_test(type: Test) {
+//    useJUnitPlatform {
+//        includeTags("simple")
+//    }
+//}
+
+task demoqa_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("demoqa")
+    }
+}
