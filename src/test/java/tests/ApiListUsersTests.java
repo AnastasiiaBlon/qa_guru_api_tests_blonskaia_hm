@@ -7,12 +7,13 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
-public class ApiListUsersTests extends BrowserConfigTest{
+public class ApiListUsersTests extends TestBase {
 
     @Test
     @DisplayName("Check that users with ids as 7, 8, 9, 10, 11, 12 are in the response")
     void getUsersListTest() {
         given()
+                .log().all()
                 .queryParam("page", 2)  // We want users on page 2
                 .when()
                 .get("/users")
@@ -37,6 +38,7 @@ public class ApiListUsersTests extends BrowserConfigTest{
         String requestBody = "{ \"name\": \"John\", \"job\": \"QA Engineer\" }";
 
         given()
+                .log().all()
                 .contentType(ContentType.JSON)
                 .body(requestBody)
                 .when()
@@ -55,6 +57,7 @@ public class ApiListUsersTests extends BrowserConfigTest{
         int userId = 2;
 
         given()
+                .log().all()
                 .contentType(ContentType.JSON)
                 .body(requestBody)
                 .when()
@@ -71,6 +74,7 @@ public class ApiListUsersTests extends BrowserConfigTest{
         int userId = 2;
 
         given()
+                .log().all()
                 .when()
                 .delete("/users/" + userId)
                 .then()
@@ -83,6 +87,7 @@ public class ApiListUsersTests extends BrowserConfigTest{
         String email = "eve.holt@reqres.in";
 
         given()
+                .log().all()
                 .queryParam("page", 1)
                 .when()
                 .get("/users")

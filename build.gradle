@@ -1,11 +1,11 @@
 plugins {
     id 'java-library'
-    id 'io.qameta.allure' version '2.11.2'
+    id 'io.qameta.allure' version '2.27.0'
 }
 
 allure {
     report {
-        version.set("2.32.0")
+        version.set("2.27.0")
     }
     adapter {
         aspectjWeaver.set(true)
@@ -48,20 +48,7 @@ tasks.withType(JavaCompile) {
 tasks.withType(Test) {
     useJUnitPlatform()
     systemProperties(System.getProperties())
-
-//    testLogging {
-//        lifecycle {
-//            events "started", "skipped", "failed", "standard_error", "standerd_out"
-//            exceptionFormat "short"
-//        }
-//    }
 }
-
-//task simple_test(type: Test) {
-//    useJUnitPlatform {
-//        includeTags("simple")
-//    }
-//}
 
 task demoqa_test(type: Test) {
     useJUnitPlatform {

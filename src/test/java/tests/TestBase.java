@@ -5,7 +5,7 @@ import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeAll;
 
 
-public class BrowserConfigTest {
+public class TestBase {
 
     @BeforeAll
     public static void configParams() {
