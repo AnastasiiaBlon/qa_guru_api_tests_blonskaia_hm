@@ -30,7 +30,7 @@ public class GeneralSpecs {
             .build();
 
     public static ResponseSpecification generalResponse204Spec = new ResponseSpecBuilder()
-            .expectStatusCode(200)
+            .expectStatusCode(204)
             .log(STATUS)
             .log(BODY)
             .build();
