@@ -56,8 +56,8 @@ tasks.withType(Test) {
     systemProperties(System.getProperties())
 }
 
-task demoqa_test(type: Test) {
+task api_test(type: Test) {
     useJUnitPlatform {
-        includeTags("demoqa")
+        includeTags("apiTest")
     }
 }

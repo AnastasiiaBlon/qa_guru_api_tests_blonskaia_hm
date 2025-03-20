@@ -5,6 +5,7 @@ import models.lombok.LombokBodyModel;
 import models.lombok.LombokCheckEmailModel;
 import models.lombok.LombokResponseModel;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -19,6 +20,7 @@ import static specs.GeneralSpecs.*;
 public class ApiListUsersTests extends TestBase {
 
     @Test
+    @Tag("apiTest")
     @DisplayName("Check that users with ids as 7, 8, 9, 10, 11, 12 are in the response")
     void getUsersListTest() {
         List<Integer> expectedIds = List.of(7, 8, 9, 10, 11, 12);
@@ -42,6 +44,7 @@ public class ApiListUsersTests extends TestBase {
     }
 
     @Test
+    @Tag("apiTest")
     @DisplayName("Check that user is created")
     void createStepsCustomLombokAllureUserTest() {
         LombokBodyModel requestBody = new LombokBodyModel();
@@ -66,6 +69,7 @@ public class ApiListUsersTests extends TestBase {
     }
 
     @Test
+    @Tag("apiTest")
     @DisplayName("Check that user's data is correctly updated")
     void updateUserTest() {
         LombokBodyModel requestBody = new LombokBodyModel();
@@ -90,6 +94,7 @@ public class ApiListUsersTests extends TestBase {
     }
 
     @Test
+    @Tag("apiTest")
     @DisplayName("Check that user is deleted")
     void deleteUserTest() {
         int userId = 2;
@@ -104,6 +109,7 @@ public class ApiListUsersTests extends TestBase {
     }
 
     @Test
+    @Tag("apiTest")
     @DisplayName("Check that email (eve.holt@reqres.in) exists in the user list")
     void userEmailExistsTest() {
         String expectedEmail = "eve.holt@reqres.in";
