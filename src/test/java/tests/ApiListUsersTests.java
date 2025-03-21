@@ -30,7 +30,7 @@ public class ApiListUsersTests extends TestBase {
                         .when()
                         .get("/users")
                         .then()
-                        .statusCode(200)
+                        .spec(generalResponse200Spec)
                         .body("data.size()", greaterThan(0))
                         .extract()
                         .jsonPath()
