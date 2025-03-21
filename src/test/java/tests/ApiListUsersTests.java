@@ -1,6 +1,5 @@
 package tests;
 
-import io.restassured.http.ContentType;
 import models.lombok.LombokBodyModel;
 import models.lombok.LombokCheckEmailModel;
 import models.lombok.LombokResponseModel;
